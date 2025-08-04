@@ -1,7 +1,7 @@
 const fs = require("fs")
 const arr = fs.readFileSync(0).toString().trim().split(" ").map(Number);
 
-let index = 0;
+let index = arr.length;
 
 for(let i in arr){
     if(arr[i] >= 250) {
