@@ -1,7 +1,7 @@
 const fs = require("fs");
 const arr = fs.readFileSync(0).toString().trim().split(" ").map(Number);
 
-const stack = Array(9).fill(0);
+const stack = Array(10).fill(0);
 
 while(arr[0]>1){
     const v = parseInt(arr[0] / arr[1]);
