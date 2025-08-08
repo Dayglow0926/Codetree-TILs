@@ -1,20 +1,15 @@
 const fs = require("fs"); 
 const arr = fs.readFileSync(0).toString().trim().split("\n");
 
-const nums = arr[1].split(" ").map(Number);
+const nums = arr[1].split(" ");
+const stack = [];
+let numstr = arr[1];
 
-let stack = [nums[0]];
-const dupl = []
-
-for(let i=1; i<nums.length; i++){
-    const index = stack.indexOf(nums[i]);
-    const duplIndex = dupl.indexOf(nums[i]);
-
-    if(index === -1 && duplIndex === -1) stack.push(nums[i]);
-    else {
-        stack.splice(index, 1);
-        dupl.push(nums[i])
-    }
+for(let n of nums){
+    if(stack.indexOf(n) > -1) numstr = numstr.replaceAll(n,"");
+    else stack.push(n);
 }
 
-console.log(stack.length > 0? Math.max(...stack) : -1);
+const result = numstr.trim().split(" ").filter(Number).map(Number);
+
+console.log(result.length > 0 ? Math.max(...result) : -1);
