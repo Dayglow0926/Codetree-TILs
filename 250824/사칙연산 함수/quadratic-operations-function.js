@@ -18,7 +18,7 @@ function mul(a,b){
 }
 
 function div(a,b){
-    return a / b;
+    return Math.floor(a / b);
 }
 
 if(o === '+') console.log(`${a} ${o} ${c} = ${add(a,c)}`);
