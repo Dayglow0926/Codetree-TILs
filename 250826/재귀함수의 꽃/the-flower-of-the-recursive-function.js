@@ -13,7 +13,7 @@ function f(a, t) {
     process.stdout.write(a[t] + " ");
 }
 
-let a = Array(5).fill(0);
+let a = Array(n).fill(0);
 
 for (let i = 0; i < a.length; i++) {
     a[i] = i + 1;
