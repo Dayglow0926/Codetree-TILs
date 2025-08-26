@@ -9,7 +9,7 @@ const pattern = input[1];
 function indexOf(text, pattern){
     const length = text.length - pattern.length
     for(let i=0; i<=length; i++){
-        const str = text.slice(i, i+2);
+        const str = text.slice(i, i+pattern.length);
         if(str === pattern) return i;
     }
 
