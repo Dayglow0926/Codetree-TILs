@@ -7,7 +7,8 @@ const arr = input[1].split(" ").map(Number);
 
 function f(n){
     if(n < 0) return 0;
-    return arr[n] > f(n-1) ? arr[n] : f(n-1);
+    const temp = f(n-1);
+    return arr[n] > temp ? arr[n] : temp;
 }
 
 console.log(f(n-1));
