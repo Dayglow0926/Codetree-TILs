@@ -19,7 +19,8 @@ points.forEach((p, i) => {
 })
 
 list.sort((p, c) => {
-    const dot = (p.x + p.y) - (c.x + c.y);
+    const dot = (Math.abs(p.x) + Math.abs(p.y)) - (Math.abs(c.x) + Math.abs(c.y));
+
     if(dot === 0) return p.i - c.i;
 
     return dot;
