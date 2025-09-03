@@ -21,7 +21,7 @@ class Student{
 const list = [];
 
 students.forEach((s) => {
-    list.push(new Student(s.name, s.height, s.weight))
+    list.push(new Student(s.name, s.height, s.weight.toFixed(1)))
 })
 
 list.sort((p,c) => {
