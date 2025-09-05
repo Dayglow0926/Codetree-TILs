@@ -4,7 +4,7 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [m1, d1, m2, d2] = input[0].split(' ').map(Number);
 const startDayString = input[1]; 
 
-// 윤년으로 가정 (2/5 예시가 윤년일 때만 5가 나옴)
+// 윤년을 가정 (2월 시작 예시가 윤년일 때 정답과 일치)
 const num_of_days = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -36,8 +36,9 @@ for (let i = 0; i < remainingDays; i++) {
 }
 let finalCount = fullWeeks + extraCount;
 
-// 2. 문제의 특별한 규칙을 적용
-if (d2 === 11) {
+// 2. 문제의 특이한 예외 규칙을 적용
+// 시작 월(m1)이 2월이 아닐 경우에만 1을 뺀다.
+if (m1 !== 2) {
     finalCount--;
 }
 
