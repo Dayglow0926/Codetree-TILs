@@ -47,15 +47,15 @@ for(let i=0; i<tile.length; i++){
 
         if(tile[i][j] === 1) {
             checkArea++;
+            tile2[2] = tile2[2] > i+1 ? tile2[2] : i+1 ;
+            tile2[3] = tile2[3] > j+1 ? tile2[3] : j+1 ;
             if(checkArea === area) {
-                tile2[2] = i+1;
-                tile2[3] = j+1;
                 check[1] = true;
                 break;
             }
         }
-   }
-   if(check[0] && check[1]) break;
+    }
+    if(check[0] && check[1]) break;
 }
 
 let result = Math.abs(tile2[2] - tile2[0]) * Math.abs(tile2[3] - tile2[1]);
