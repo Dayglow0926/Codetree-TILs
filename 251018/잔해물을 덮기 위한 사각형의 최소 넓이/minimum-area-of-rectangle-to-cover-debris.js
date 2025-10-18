@@ -13,18 +13,18 @@ const tile = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
 
 let area = 0;
 
-for(let i=rect1[0]; i<=rect1[2]; i++){
+for(let i=rect1[0]; i<rect1[2]; i++){
     const x = i + OFFSET;
-    for(let i=rect1[1]; i<=rect1[3]; i++){
+    for(let i=rect1[1]; i<rect1[3]; i++){
         const y = i + OFFSET;
         tile[x][y] = 1;
         area++;
     }
 }
 
-for(let i=rect2[0]; i<=rect2[2]; i++){
+for(let i=rect2[0]; i<rect2[2]; i++){
     const x = i + OFFSET;
-    for(let i=rect2[1]; i<=rect2[3]; i++){
+    for(let i=rect2[1]; i<rect2[3]; i++){
         const y = i + OFFSET;
         if(tile[x][y] === 1){
             tile[x][y] = 0;
@@ -57,6 +57,6 @@ for(let i=0; i<tile.length; i++){
    if(check[0] && check[1]) break;
 }
 
-let result = Math.abs(tile2[2] - tile2[0]) * Math.abs(tile2[3] - tile2[1]);
+let result = Math.abs(tile2[2] - tile2[0] + 1) * Math.abs(tile2[3] - tile2[1]+ 1);
 
 console.log(result);
