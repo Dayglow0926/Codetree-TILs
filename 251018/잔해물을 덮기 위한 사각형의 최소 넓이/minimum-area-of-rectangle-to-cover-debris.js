@@ -45,18 +45,19 @@ for(let i=0; i<tile.length; i++){
             check[0] = true;
         }
 
-        if(tile[i][j] === 1) checkArea++;
-
-        if(checkArea === area) {
-            tile2[2] = i;
-            tile2[3] = j;
-            check[1] = true;
-            break;
+        if(tile[i][j] === 1) {
+            checkArea++;
+            if(checkArea === area) {
+                tile2[2] = i+1;
+                tile2[3] = j+1;
+                check[1] = true;
+                break;
+            }
         }
    }
    if(check[0] && check[1]) break;
 }
 
-let result = Math.abs(tile2[2] - tile2[0] + 1) * Math.abs(tile2[3] - tile2[1]+ 1);
+let result = Math.abs(tile2[2] - tile2[0]) * Math.abs(tile2[3] - tile2[1]);
 
 console.log(result);
