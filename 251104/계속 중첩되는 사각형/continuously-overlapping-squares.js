@@ -25,7 +25,7 @@ for(let rect of rectangles){
     }
 
     if(RB === 1) RB = 2;
-    else RB === 1;
+    else RB = 1;
 }
 
 const result = tile.reduce((pre, cur) => pre + cur.reduce((p,c) => {
