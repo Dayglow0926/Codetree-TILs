@@ -25,4 +25,6 @@ for(let num of arr){
     }
 }
 
+result = result < Math.abs(cnt) ? Math.abs(cnt) : result;
+
 console.log(result);
