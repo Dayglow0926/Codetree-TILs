@@ -15,8 +15,6 @@ for(let i=1; i<n; i++){
     }
 }
 
-if(arr[n-2] < arr[n-1]) check.push(arr[n-1]);
-
 result = check.length > result ? check.length : result ;
 
 console.log(result);
