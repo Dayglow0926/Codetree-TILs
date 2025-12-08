@@ -2,23 +2,20 @@ const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
 
 const [n, m] = input[0].split(' ').map(Number);
-const movesA = input.slice(1, 1 + n);
-const movesB = input.slice(1 + n, 1 + n + m);
+const movesA = input.slice(1, 1 + n).map((v) => v.split(" ").map((v) => isNaN(v) ? v : Number(v)));
+const movesB = input.slice(1 + n, 1 + n + m).map((v) => v.split(" ").map((v) => isNaN(v) ? v : Number(v)));
 
 // Please Write your code here.
-
 const time = Math.max(movesA.reduce((p, c) => p + Number(c[0]),0), movesB.reduce((p, c) => p + Number(c[0]),0));
 const arr = Array.from({length: time+1}, () => [0,0])
 
 let curT = 0;
 
 for(const move of movesA){
-    const location = move.split(' ').map((v) => isNaN(v) ? v : Number(v));
-
-    for(let i=1; i <= location[0]; i++){
-        arr[curT + i][0] = arr[curT + i - 1][0] + (location[1] === 'R' ? 1 : -1)
+    for(let i=1; i <= move[0]; i++){
+        arr[curT + i][0] = arr[curT + i - 1][0] + (move[1] === 'R' ? 1 : -1)
     }
-    curT += location[0];
+    curT += move[0];
 }
 
 for(let i=curT+1; i<=time; i++){
@@ -28,12 +25,10 @@ for(let i=curT+1; i<=time; i++){
 curT = 0;
 
 for(const move of movesB){
-    const location = move.split(' ').map((v) => isNaN(v) ? v : Number(v));
-
-    for(let i=1; i <= location[0]; i++){
-        arr[curT + i][1] = arr[curT + i - 1][1] + (location[1] === 'R' ? 1 : -1)
+    for(let i=1; i <= move[0]; i++){
+        arr[curT + i][1] = arr[curT + i - 1][1] + (move[1] === 'R' ? 1 : -1)
     }
-    curT += location[0];
+    curT += move[0];
 }
 
 for(let i=curT+1; i<=time; i++){
