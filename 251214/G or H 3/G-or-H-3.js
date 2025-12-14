@@ -18,6 +18,12 @@ for(let elem of people){
 
 let result = 0;
 
+if(arr.length <= k){
+  console.log(arr.reduce((p, c)=> p+c, 0));
+
+  return ;
+}
+
 for(let i=1; i<=arr.length-k; i++){
   let sum = 0;
   for(let j=i; j<arr.length; j++){
