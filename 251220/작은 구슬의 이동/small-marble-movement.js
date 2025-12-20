@@ -15,7 +15,7 @@ const mapper = {
     'L': 3
 }
 
-const dx = [1,0,0,-1], dy = [0,-1,1,0];
+const dx = [1,0,0,-1], dy = [0,1,-1,0];
 let dirNum = mapper[d];
 const location = [r, c];
 
@@ -23,15 +23,14 @@ function inRange(x, y){
     return x > 0 && x <= n && y > 0 && y <= n;
 }
 
-for(let i=0; i<t; i++){
+for(let i=0; i<=t; i++){
     let nx = location[1] + dx[dirNum], ny = location[0] + dy[dirNum];
 
     if(!inRange(nx, ny)) {
         dirNum = 3 - dirNum;
+        i++ ;
         continue;
     }
-
-    
 
     location[0] = ny, location[1] = nx;
 
