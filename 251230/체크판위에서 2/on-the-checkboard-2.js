@@ -11,6 +11,11 @@ let count = 0;
 let color = grid[0][0];
 const now = [0,0]
 
+if(grid[0][0] === grid[R-1][C-1]){
+    console.log(0);
+    return;
+}
+
 for(let row=1; row<R; row++){
     for(let col=1; col<C; col++){
         if(grid[0][0] !== grid[row][col]){
