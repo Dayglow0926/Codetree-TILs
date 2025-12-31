@@ -13,7 +13,13 @@ for(let i=0; i<a.length; i++){
         a[i] = 1;
         change = true;
     }
+}
 
+if(!change){
+    a[a.length - 1] = 0;
+}
+
+for(let i=0; i<a.length; i++){
     result += 2**(a.length - i -1) * a[i];
 }
 
