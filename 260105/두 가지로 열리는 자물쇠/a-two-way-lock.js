@@ -8,6 +8,11 @@ const [a2, b2, c2] = input[2].split(' ').map(Number);
 // Please Write your code here.
 
 function numberConvert(num){
+    
+    if(n < 5){
+        return Array.from({ length: n }, (v, i) => i);
+    }
+
     return [num-2,num-1,num,num+1,num+2].map((v) => {
         if(v < 1) return n + v;
         else if(v > n) return v - n;
