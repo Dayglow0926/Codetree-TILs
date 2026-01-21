@@ -9,14 +9,14 @@ let area = 0;
 for(let i=0; i<n; i++){
     let p1 = points[i];
     for(let j=i+1; j<n; j++){
-        let lineIndex = [0, 0];
         let p2 = points[j];
 
-        if(p1[0] === p2[0]) lineIndex[0] = Math.abs(p1[1] - p2[1]);
-        if(p1[1] === p2[1]) lineIndex[1] = Math.abs(p1[0] - p2[0]);
-
         for(let l=j+1; l<n; l++){
+            let lineIndex = [0, 0];
             let p3 = points[l];
+
+            if(p1[0] === p2[0]) lineIndex[0] = Math.abs(p1[1] - p2[1]);
+            if(p1[1] === p2[1]) lineIndex[1] = Math.abs(p1[0] - p2[0]);
 
             if(!lineIndex[0]){
                 if(p3[0] === p1[0]) lineIndex[0] = Math.abs(p3[1] - p1[1]);
@@ -29,6 +29,7 @@ for(let i=0; i<n; i++){
             }
 
             if(lineIndex[0] && lineIndex[1]){
+                // console.log(`${lineIndex[0]} * ${lineIndex[1]} : `, lineIndex[0] * lineIndex[1]);
                 area = Math.max(lineIndex[0] * lineIndex[1], area);
             }
         }
