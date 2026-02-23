@@ -18,7 +18,7 @@ for (let i = 1; i <= n; i++) {
 
 let max = -1;
 
-for(let i=tMin; i<=tMax; i++){
+for(let i=tMin-1; i<=tMax; i++){
     let sum = 0;
 
     for(let j=0; j<ta.length; j++){
