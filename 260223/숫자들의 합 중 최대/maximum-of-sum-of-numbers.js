@@ -9,6 +9,11 @@ let max = -1;
 for(let i=x; i<=y; i++){
     const arr = Array.from(String(i), Number);
 
+    if(arr.length<2){
+        max = Math.max(max, i);
+        continue;
+    }
+
     for(let a=0; a<arr.length; a++){
         for(let b=a+1; b<arr.length;b++){
             let sum = arr[a] + arr[b];
