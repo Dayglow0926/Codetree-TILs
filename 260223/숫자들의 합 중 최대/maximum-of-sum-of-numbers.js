@@ -7,20 +7,9 @@ const [x, y] = input[0].split(' ').map(Number);
 let max = -1;
 
 for(let i=x; i<=y; i++){
-    const arr = Array.from(String(i), Number);
+    const sum = Array.from(String(i), Number).reduce((c, p) => c+p, 0);
 
-    if(arr.length<2){
-        max = Math.max(max, i);
-        continue;
-    }
-
-    for(let a=0; a<arr.length; a++){
-        for(let b=a+1; b<arr.length;b++){
-            let sum = arr[a] + arr[b];
-
-            max = Math.max(max, sum);
-        }
-    }
+    max = Math.max(max, sum)
 }
 
 console.log(max)
