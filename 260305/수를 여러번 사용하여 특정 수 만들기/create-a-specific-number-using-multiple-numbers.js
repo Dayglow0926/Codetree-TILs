@@ -6,14 +6,13 @@ const [a, b, c] = input[0].split(' ').map(Number);
 
 let result = 0;
 
-for(let i=0; i<a; i++){
+for(let i=0; i<c; i++){
     const aNum = a * i;
 
     if(aNum > c) break;
 
-    for(let j=0; j<b; j++){
+    for(let j=0; j<c; j++){
         const bNum = b * j;
-
         if(aNum + bNum <= c){
             result = Math.max(result, aNum + bNum);
         }else{
