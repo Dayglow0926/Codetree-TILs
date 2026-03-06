@@ -9,21 +9,22 @@ const LINE_LIMIT=3;
 
 
 for(let j=0; j<=LINE_LIMIT; j++){
-    const temp = [...points]
+    let temp = [...points]
 
     for(let xl=0; xl<LINE_LIMIT-j; xl++){
         const num = temp[0];
-        temp.filter((v) => v[0] !== num[0]);
+        temp = temp.filter((v) => v[0] !== num[0]);
     }
 
     for(let yl=0; yl<j; yl++){
         const num = temp[0];
-        temp.filter((v) => v[1] !== num[1]);
+        temp = temp.filter((v) => v[1] !== num[1]);
     }
 
-    console.log(temp);
-    
-    if(temp.length === 0) console.log(1); return;
+    if(temp.length === 0) {
+        console.log(1); 
+        return ;
+    }
 }
 
 console.log(0);
