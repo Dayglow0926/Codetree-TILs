@@ -7,7 +7,7 @@ const MAX = Math.max(arr[0], arr[arr.length - 1]);
 const NUMBER_MAX = Math.max(...arr);
 let result = NUMBER_MAX;
 
-for(let i = NUMBER_MAX; i>MAX; i--){
+for(let i = NUMBER_MAX; i>=MAX; i--){
     if(arr.indexOf(i) < 0 ) continue;
 
     const array = [];
