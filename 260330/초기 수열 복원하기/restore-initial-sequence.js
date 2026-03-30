@@ -9,7 +9,7 @@ for(let i=1; i<n; i++){
 
     for(let j=0; j<numbers.length; j++){
         const val = numbers[j]-arr[j];
-        if(arr.indexOf(val)>-1 || val === 0){
+        if(arr.indexOf(val)>-1 || val <= 0){
             break;
         }
         arr.push(val);
