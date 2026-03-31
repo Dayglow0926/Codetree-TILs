@@ -6,22 +6,26 @@ const sums = input.slice(1).map(Number)
 
 // Please Write your code here.
 
-const max = Math.max(...sums);
-const result = [];
+let result = 0;
+let max = 0;
 
-for(let i=0; i<=max; i++){
-    let boom = 0;
-    let count = 0;
+for(let i=0; i<sums.length; i++){
+    let len = 0, count = 0;
 
-    for(let j=0; j<sums.length; j++){
-        boom ++;
-        if(sums[j] === i && boom <= k){
-            boom = 0;
+    for(let j=i+1; j<sums.length; j++){
+        len++;
+        if(len > k){
+            break;
+        }
+        if(sums[j] === sums[i]){
             count++;
         }
     }
 
-    result.push(count);
+    if(max < count){
+        result = sums[i];
+        max = count;
+    }
 }
 
-console.log(result.indexOf(Math.max(...result)));
+console.log(result);
