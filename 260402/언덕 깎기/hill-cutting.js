@@ -7,25 +7,27 @@ for (let i = 1; i <= n; i++) {
     nums.push(Number(input[i]));
 }
 
-// Please write your code here.
-nums.sort((a,b) =>  a-b);
-const count = []
+let minCost = Infinity;
 
-for(let i=0; i<nums.length/2; i++){
-    const len = nums[nums.length - 1 - i] - nums[i] - 17;
-    if(len <= 0) break;
+for (let i = 0; i <= 83; i++) {
+    const minTarget = i;
+    const maxTarget = i + 17;
+    let currentCost = 0;
 
-    const next = nums[i+1] - nums[0];
-    const prev = nums[nums.length - 1] - nums[nums.length - 1 - i - 1];
+    for (let j = 0; j < n; j++) {
+        const height = nums[j];
 
-    if(next + prev > len){
-        count.push(len);
-        break;
-    }else{
-        count.push([next, prev]);
+        if (height < minTarget) {
+            currentCost += Math.pow(minTarget - height, 2);
+        } else if (height > maxTarget) {
+            currentCost += Math.pow(height - maxTarget, 2);
+        }
+    }
+
+    if (currentCost < minCost) {
+        minCost = currentCost;
     }
 }
 
-console.log(count.reduce((pre, cur, i) => {
-    return pre + cur.reduce((pre2, cur2) => pre2 + cur2 * cur2, 0) ** ( i + 1 );
-},0));
+console.log(minCost);
+
